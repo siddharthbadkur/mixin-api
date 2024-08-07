@@ -51,3 +51,4 @@ class MovieViewSet(viewsets.ViewSet):
         stu = MovieModel.objects.get(pk=id)
         stu.delete()
         return Response({'msg':'Data Deleted'})
+#a
