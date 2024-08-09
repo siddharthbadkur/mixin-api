@@ -4,7 +4,7 @@ from .views import MovieViewSet
   
 # define the router
 router = routers.DefaultRouter()
-router.register(r'movie', MovieViewSet, basename='movie')
+router.register(r'movie', MovieViewSet, basename='movie')#router give  in url
 
 urlpatterns = [
     path('', include(router.urls)),
