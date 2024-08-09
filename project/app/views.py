@@ -1,14 +1,17 @@
 from django.shortcuts import render
-
-# Create your views here.
 from rest_framework.response import Response
 from .serializers import MovieSerializer
 from .models import MovieModel
 from rest_framework import status
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication
 
 class MovieViewSet(viewsets.ViewSet):
-    
+    authentication_classes = [SessionAuthentication] 
+    permission_classes = [IsAuthenticated]
+   
+
     def list(self, request):
         stu = MovieModel.objects.all()
         serializer = MovieSerializer(stu, many=True)
@@ -51,4 +54,3 @@ class MovieViewSet(viewsets.ViewSet):
         stu = MovieModel.objects.get(pk=id)
         stu.delete()
         return Response({'msg':'Data Deleted'})
-#a
