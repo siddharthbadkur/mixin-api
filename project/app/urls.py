@@ -8,6 +8,6 @@ router.register(r'movie', MovieViewSet, basename='movie')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls'))#under in it login and logout button 
 
   ]
