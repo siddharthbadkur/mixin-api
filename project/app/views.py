@@ -5,11 +5,13 @@ from .models import MovieModel
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import SessionAuthentication
+# from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAdminUser
 
 class MovieViewSet(viewsets.ViewSet):
-    authentication_classes = [SessionAuthentication] 
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [SessionAuthentication] 
+    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
    
 
     def list(self, request):
